@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Mock Exam Review",
   "main": "q0.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
