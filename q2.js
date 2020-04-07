@@ -24,7 +24,23 @@ const round = function(number) {
  */
 
 const median = function(arr) {
+  // sort the array
+  const newArr = [...arr];
+  newArr.sort((a, b) => a - b);
 
+  // find the middle index
+  const middleIndex = Math.floor(newArr.length / 2);
+
+  // check if array length is even
+  if (newArr.length % 2 === 0) {
+    // round the result
+    // [1, 2, 3, 4]
+    const sum = newArr[middleIndex] + newArr[middleIndex - 1];
+    return round(sum / 2);
+  } else {
+    // return the result
+    return newArr[middleIndex];
+  }
 };
 
 // Don't change below:

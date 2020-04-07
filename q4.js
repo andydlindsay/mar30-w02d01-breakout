@@ -28,8 +28,29 @@ const round = function(number) {
   return Math.round(number * 100) / 100;
 };
 
-const stdev = function(arr) {
+const sum = function(arr) {
+  return arr.reduce((total, curr) => total + curr, 0);
+};
 
+const stdev = function(arr) {
+  // stdev = sqrt(sum((el - populationMean)^2)/numberOfValues)
+
+  // number of values
+  const numberOfValues = arr.length;
+
+  // average of the array
+  const populationMean = sum(arr) / numberOfValues;
+
+  // iterate through the array
+  const deviations = arr.map((el) => {
+    // calculate deviations from mean
+    return Math.pow(el - populationMean, 2);
+  });
+
+  const total = deviations.reduce((total, curr) => total + curr, 0);
+  const variance = total / numberOfValues;
+  const stdDev = Math.sqrt(variance);
+  return round(stdDev);
 };
 
 // Don't change below:
